@@ -1,7 +1,7 @@
 // Creating map
 let myMap = L.map('map', {
     center: [29.4252, -98.4946],
-    zoom: 2
+    zoom: 3
 });
 
 // Adding tile layer
@@ -69,6 +69,20 @@ d3.json(url).then((data) => {
         );
     };
 
+    
+
 });
 
-// radius: Math.sqrt(countries[i].gdp_pc) * 500
+let legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function() {
+    let div = L.DomUtil.create('div', 'legend');
+    text = 'jeff'
+    color = '#00FF00'
+    div.innerHTML += "<h4>Magnitude</h4>";
+    div.innerHTML += '<i style="background:' + color + '"></i>' + text + ''
+    
+    return div;
+};
+
+legend.addTo(myMap)
