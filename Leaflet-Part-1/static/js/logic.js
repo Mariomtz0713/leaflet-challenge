@@ -27,28 +27,28 @@ d3.json(url).then((data) => {
         let depth = features[i].geometry.coordinates[2];
 
         // Determining marker color
-        if (depth >= 0 && depth < 1) {
-            depthColor = '#E2FFAE' // White color but not
-        }
-
-        else if (depth >= -10 && depth < 10) {
-            depthColor = '#00FF00' // Light green
+        if (depth >= -10 && depth < 10) {
+            depthColor = '#0000FF' // blue
         }
 
         else if (depth >= 10 && depth < 30) {
-            depthColor = 'green'
+            depthColor = '#00FF00' // dark green
         }
 
-        else if (depth >= 30 && depth < 40) {
-            depthColor = 'yellow'
+        else if (depth >= 30 && depth < 50) {
+            depthColor = '#008000'  // light green
         }
 
-        else if (depth >= 40 && depth < 50) {
-            depthColor = 'orange'
+        else if (depth >= 50 && depth < 70) {
+            depthColor = '#FFFF00' // yellow
+        }
+
+        else if (depth >= 70 && depth < 90) {
+            depthColor = '#FFA500' // orange
         }
 
         else {
-            depthColor = 'red'
+            depthColor = '#FF0000' // red
         };
 
         // Displaying marker and information
@@ -69,19 +69,19 @@ d3.json(url).then((data) => {
         );
     };
 
-    
-
 });
 
 let legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function() {
     let div = L.DomUtil.create('div', 'legend');
-    text = 'jeff'
-    color = '#00FF00'
-    div.innerHTML += "<h4>Magnitude</h4>";
-    div.innerHTML += '<i style="background:' + color + '"></i>' + text + ''
-    
+    div.innerHTML += '<i style="background: #0000FF"></i>-10-10<br>'
+    div.innerHTML += '<i style="background: #008000"></i>10-30<br>'
+    div.innerHTML += '<i style="background: #00FF00"></i>30-50<br>'
+    div.innerHTML += '<i style="background: #FFFF00"></i>50-70<br>'
+    div.innerHTML += '<i style="background: #FFA500"></i>70-90<br>'
+    div.innerHTML += '<i style="background: #FF0000"></i>90+<br>'
+
     return div;
 };
 
