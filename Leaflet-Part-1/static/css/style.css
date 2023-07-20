@@ -9,6 +9,7 @@ html {
   height: 100%;
 }
 
+/* Displays legend background */
 .legend {
   padding: 10px;
   font-family: Sanchez, serif;
@@ -19,7 +20,8 @@ html {
   border-radius: 5px;
 }
 
-.legend i {
+/* Displays color pallets in legend */
+.legend l {
   width: 18px;
   height: 18px;
   float: left;
